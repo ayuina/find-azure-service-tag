@@ -1,6 +1,6 @@
 # Find Azure Network Service Tag
 
-This tool checks an IP address is Azure public ip address, and which service is use that.
+This tool checks an IP address is Azure public ip address, and which service is using.
 
 # How to use
 
@@ -14,7 +14,8 @@ Then run exe, 1st argument is IP address which you want to check.
 20.38.116.38 is in 20.38.96.0/19 (Storage)
 20.38.116.38 is in 20.38.116.0/23 (Storage.JapanEast)
 ```
-Or, simply run like below.
+
+Or, simply run on project root directory like below.
 
 ```powershell
 ❯ dotnet run 52.239.211.104
