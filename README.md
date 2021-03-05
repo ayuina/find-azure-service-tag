@@ -32,6 +32,7 @@ This file contains all Azure ServiceTag definition, and used in followoing opera
 ## Step 2 : Check an IP Address 
 
 Run with `ip` parameter, which you want to check.
+This operation doesn't need authorization , but `servicetags.json` file.
 
 ```bash
 $ dotnet run --ip 20.38.116.38
@@ -42,14 +43,14 @@ $ dotnet run --ip 20.38.116.38
 20.38.116.38 is in 20.38.116.0/23 (Storage.JapanEast)
 ```
 
-Thid operation doesn't need authrization , but `servicetags.json` file.
+This ip address is Azure Storqage Account in JapanEast region.
 
-# How to use (MacOS)
+# How to pubish for MacOS
 
 Publish executable file.
 
 ```bash
-$ dotnet publish --runtime osx-x64 --output ./publish/osx-x64 ¥
+$ dotnet publish --runtime osx-x64 --output ./publish/osx-x64 \
     -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 ```
 
@@ -57,7 +58,7 @@ Then run this tool like below and check the output file `servicetags.json` exist
 
 ```bash
 $ cd ./publish/osx-x64
-$ ./find-azure-service-tag
+$ ./find-azure-service-tag --subscriptionid "your-subscription-guid-goes-here"
 ```
 
 Check the ip address you are interested in.
@@ -70,3 +71,34 @@ $ ./find-azure-service-tag --ip 40.79.192.5
 40.79.192.5 is in 40.79.192.0/27 (Sql)
 40.79.192.5 is in 40.79.192.0/27 (Sql.JapanEast)
 ```
+
+This ip address is Azure SQL Database in JapanEast region.
+
+# How to publish for Windows
+
+Publish executable file.
+
+```powershell
+> dotnet publish --runtime win-x64 --output ./publish/win-x64 /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
+```
+
+Then run this tool like below and check the output file `servicetags.json` exists.
+
+```powershell
+$ cd .\publish\osx-x64
+$ .\find-azure-service-tag.exe --subscriptionid "your-subscription-guid-goes-here"
+```
+
+Check the ip address you are interested in.
+
+```powershell
+> .\find-azure-service-tag.exe --ip 13.66.146.12 
+
+13.66.146.12 is in 13.66.128.0/17 (AzureCloud)
+13.66.146.12 is in 13.66.128.0/17 (AzureCloud.westus2)
+13.66.146.12 is in 13.66.146.0/24 (AzureContainerRegistry)
+13.66.146.12 is in 13.66.146.0/24 (AzureContainerRegistry.WestUS2)
+```
+
+This ip address is Azure Container Registry in West US 2 region.
+
