@@ -85,7 +85,7 @@ Publish executable file.
 Then run this tool like below and check the output file `servicetags.json` exists.
 
 ```powershell
-$ cd .\publish\osx-x64
+$ cd .\publish\win-x64
 $ .\find-azure-service-tag.exe --subscriptionid "your-subscription-guid-goes-here"
 ```
 
