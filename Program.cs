@@ -95,7 +95,7 @@ namespace find_azure_service_tag
         // https://docs.microsoft.com/ja-jp/azure/active-directory/develop/msal-acquire-cache-tokens
         private static void DownloadServiceTags(string subscriptionId, string location)
         {
-            var cred = new DefaultAzureCredential(true);
+            var cred = new DefaultAzureCredential();
             var ctx = new TokenRequestContext( new string[]{"https://management.core.windows.net/.default"} );
             var at = cred.GetToken(ctx);
 
